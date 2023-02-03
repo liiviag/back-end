@@ -96,10 +96,28 @@ entradaDados.question('Digite seu nome: \n', function(nome){
                     }else if(isNaN(valor1) || isNaN(valor2) || isNaN(valor3) || isNaN(valor4))
                     {
                         console.log('ERRO: Você não digitou um número válido!')
-                    }else
-                    media = (parseFloat(valor1) + parseFloat(valor2) + parseFloat(valor3) + parseFloat(valor4))/4;
 
-                    console.log(media);
+                    }//Validação para  notas
+                    else if(valor1 < 0 || valor2 < 0 || valor3 < 0 || valor4 < 0) {
+
+                        console.log('ERRO: Notas apenas de 0 á 10')
+
+                    }else if(valor1 > 10 || valor2 > 10 ||valor3 > 10 ||valor4 > 10) {
+
+                        console.log('ERRO: Notas apenas de 0 á 10')
+                    }else{ 
+                        media = (parseFloat(valor1) + parseFloat(valor2) + parseFloat(valor3) + parseFloat(valor4))/4;
+
+                    //Validação média
+                        if(media > 7){
+                            console.log('Aluno Aprovado')
+                        } else
+                        {
+                            console.log('Aluno Reprovado')
+                        }
+                        console.log('Media do aluno:' + media.toFixed(1))
+                    }
+                
                 })
             });
         });
